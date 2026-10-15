@@ -1,0 +1,41 @@
+:root{--bg:#0b0b14;--bg2:#13131f;--line:#262638;--txt:#ececf5;--mut:#9a9ab0;--a:#9146ff;--b:#00e5ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);
+background-image:radial-gradient(600px 400px at 85% -5%,#9146ff33,transparent),radial-gradient(500px 400px at 0% 30%,#00e5ff1a,transparent)}
+a{color:var(--b)}.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px}
+.nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#0b0b14cc;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav nav a{display:none;margin-left:20px;color:var(--txt);text-decoration:none;font-size:.95rem}.nav nav a.btn{display:inline-block}
+.logo{font-weight:900;font-size:1.3rem;color:var(--txt);text-decoration:none;letter-spacing:-.5px}.logo span{color:var(--a)}
+main>section{max-width:1040px;margin:0 auto;padding:56px 20px}
+.hero{text-align:center;padding-top:72px!important}
+h1{font-size:clamp(2rem,7vw,3.6rem);line-height:1.1;margin:.4em 0;letter-spacing:-1px}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 24px}h3{margin:.3em 0}
+.grad{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:640px;margin:0 auto;color:var(--mut);font-size:1.1rem}
+.pill{display:inline-block;padding:4px 12px;border:1px solid var(--a);border-radius:99px;color:#c9a8ff;font-size:.85rem;margin:0}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;background:linear-gradient(90deg,var(--a),#6d2bff);color:#fff;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:1rem;box-shadow:0 0 24px #9146ff55}
+.btn:hover{filter:brightness(1.15)}.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none}.btn.sm{padding:8px 14px;font-size:.9rem}
+.steps{list-style:none;padding:0;display:grid;gap:16px}
+.steps li,.card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:24px}
+.num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--a);font-weight:900}
+.steps p,.muted{color:var(--mut)}
+.sample{display:grid;gap:32px;align-items:center}
+.ticks{padding:0;list-style:none}.ticks li{padding-left:26px;position:relative;margin:6px 0}.ticks li:before{content:"▶";position:absolute;left:0;color:var(--b);font-size:.8em;top:.2em}
+.phone{margin:0 auto;width:min(300px,80vw);text-align:center}
+.phone video{width:100%;height:auto;aspect-ratio:9/16;border-radius:24px;border:3px solid var(--line);background:#000;box-shadow:0 0 40px #00e5ff33}
+.phone figcaption{color:var(--mut);font-size:.8rem;margin-top:8px}
+.price{max-width:420px;text-align:center;margin:0 auto}.big{font-size:3rem;font-weight:900;margin:0}
+.price .ticks{text-align:left}
+details{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}details p{color:var(--mut);margin:.6em 0 0}
+.signup{text-align:center}.form{max-width:460px;margin:0 auto;text-align:left;display:grid;gap:8px}
+label{font-weight:600;font-size:.9rem}
+input[type=email],.prefix{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--txt);font-size:1rem}
+input[type=email]{padding:12px}.prefix{display:flex;align-items:center}.prefix span{padding-left:12px;color:var(--mut)}
+.prefix input{flex:1;background:none;border:0;color:var(--txt);padding:12px 12px 12px 2px;font-size:1rem;outline:none}
+input:focus,.prefix:focus-within{outline:2px solid var(--a)}
+.check{font-weight:400;color:var(--mut);display:flex;gap:8px;align-items:flex-start;margin:8px 0}
+.foot{text-align:center;color:var(--mut);padding:32px 20px;border-top:1px solid var(--line);font-size:.9rem}
+@media(min-width:760px){.nav nav a{display:inline}.steps{grid-template-columns:repeat(3,1fr)}.sample{grid-template-columns:1.2fr 1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
