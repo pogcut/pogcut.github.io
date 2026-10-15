@@ -9,7 +9,6 @@
 - Pricing: free beta with an early-access waitlist.
 - Platforms: Twitch first.
 - Website: https://pogcut.github.io/
-- X: https://x.com/pogcut
 
 ## Pages
 - [Home](https://pogcut.github.io/): overview, how it works, sample clip, pricing, FAQ, signup
