@@ -1,6 +1,6 @@
 # PogCut
 
-> PogCut (PogCut, @pogcut) turns Twitch streamers' VODs into vertical, captioned highlight clips for TikTok, YouTube Shorts and Instagram Reels. It uses Twitch chat reactions plus AI review of the transcript to find funny and hype moments automatically.
+> PogCut turns Twitch streamers' VODs into vertical, captioned highlight clips for TikTok, YouTube Shorts and Instagram Reels. It uses Twitch chat reactions plus AI review of the transcript to find funny and hype moments automatically.
 
 ## Key facts
 - Audience: Twitch streamers who want short-form clips without editing.
