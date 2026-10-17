@@ -95,15 +95,9 @@
 <section id="signup" class="section signup">
   <h2>Join the free beta</h2>
   <p>Tell us your channel and we'll email you when your first clip pack is ready.</p>
-  <!--
-    FORM BACKEND: no backend yet ($0, static site).
-    TODO: swap for Formspree or Tally:
-      Formspree: set action="https://formspree.io/f/YOUR_FORM_ID" method="POST" and delete data-mailto.
-      Tally: replace this <form> with the Tally embed snippet.
-    Until then, script.js opens the visitor's email app (mailto fallback) addressed to data-mailto.
-    TODO: set data-mailto to the real PogCut contact address.
-  -->
-  <form id="signup-form" class="card form" action="#" method="POST" data-mailto="streamcut@mail.grokbot.com">
+  <!-- FORM BACKEND: FormSubmit (free) AJAX endpoint; signups arrive at the PogCut inbox. script.js falls back to mailto if the request fails. -->
+  <form id="signup-form" class="card form" action="https://formsubmit.co/1522c86876bf53fa3c351090150487af" method="POST" data-ajax="https://formsubmit.co/ajax/1522c86876bf53fa3c351090150487af" data-mailto="streamcut@mail.grokbot.com">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
     <label for="channel">Twitch channel</label>
     <div class="prefix"><span>twitch.tv/</span><input id="channel" name="twitch_channel" required pattern="[A-Za-z0-9_]{3,25}" placeholder="yourchannel" autocomplete="off"></div>
     <label for="email">Email</label>
