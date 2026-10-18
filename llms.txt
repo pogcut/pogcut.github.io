@@ -4,6 +4,7 @@
 
 ## Key facts
 - Audience: Twitch streamers who want short-form clips without editing.
+- Clip details: vertical 9:16 1080p, burned-in captions, suggested title and hook per clip; highlight detection uses chat activity including BTTV/7TV/FFZ emotes plus the transcript.
 - How it works: 1) streamer opts in with their Twitch channel, 2) PogCut finds chat-reaction spikes and AI picks real highlights, 3) streamer receives a pack of 9:16 captioned clips (webcam top, gameplay bottom).
 - Consent: only channels whose owners opt in are processed. PogCut never posts to the streamer's accounts.
 - Pricing: free beta with an early-access waitlist.
@@ -11,4 +12,5 @@
 - Website: https://pogcut.github.io/
 
 ## Pages
-- [Home](https://pogcut.github.io/): overview, how it works, sample clip, pricing, FAQ, signup
+- [Home](https://pogcut.github.io/): overview, how it works, what a clip pack includes, pricing, FAQ, signup
+- [Guide: turn a Twitch VOD into TikTok, Shorts and Reels clips](https://pogcut.github.io/guides/twitch-vod-to-tiktok/): step-by-step manual method, plus how PogCut automates it
