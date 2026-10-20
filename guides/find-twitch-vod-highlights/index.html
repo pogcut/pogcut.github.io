@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Find the Best Moments in a Twitch VOD (Chat Spikes, Emotes and Transcripts) – PogCut</title>
+<meta name="description" content="How to find highlight moments in a long Twitch VOD fast: use chat activity spikes, emote bursts like KEKW and Pog, audio peaks and the transcript, then trim each moment into a clip for TikTok and Shorts.">
+<link rel="canonical" href="https://pogcut.github.io/guides/find-twitch-vod-highlights/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How to find the best moments in a Twitch VOD">
+<meta property="og:description" content="Use chat spikes, emote bursts, audio peaks and the transcript to find highlights in a long stream without rewatching it.">
+<meta property="og:url" content="https://pogcut.github.io/guides/find-twitch-vod-highlights/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How to find the best moments in a Twitch VOD","description":"Find highlight moments in a long Twitch stream using chat activity, emotes, audio and the transcript, then trim them into short clips.","image":"https://pogcut.github.io/assets/og-image.png","step":[
+{"@type":"HowToStep","position":1,"name":"Download the chat log","text":"Export the chat replay for the VOD with a tool such as TwitchDownloader so you have every message with its timestamp."},
+{"@type":"HowToStep","position":2,"name":"Find chat spikes","text":"Count messages per 10 to 30 second window and mark the windows where chat is much busier than usual for that stream."},
+{"@type":"HowToStep","position":3,"name":"Weight the emotes","text":"Give extra weight to reaction emotes such as KEKW, LUL, OMEGALUL, Pog, PogChamp and monkaS, including BTTV, 7TV and FFZ emotes, and to spam like 'LMAO' or '???'."},
+{"@type":"HowToStep","position":4,"name":"Check audio and the transcript","text":"Confirm each spike with the audio and transcript: loud reactions, laughter, or a quotable line usually mark the real moment."},
+{"@type":"HowToStep","position":5,"name":"Step back from the spike","text":"Chat reacts a few seconds after something happens, so start the clip earlier than the spike and end right after the payoff."},
+{"@type":"HowToStep","position":6,"name":"Rank and cut","text":"Keep the strongest few moments, trim each to a short vertical clip, and add captions, a title and a hook."}]},
+{"@type":"Article","headline":"How to find the best moments in a Twitch VOD","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-10-19","dateModified":"2026-10-19","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/find-twitch-vod-highlights/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the fastest way to find highlights in a Twitch VOD?","acceptedAnswer":{"@type":"Answer","text":"Use the chat replay. Moments where chat suddenly gets much busier than normal, especially with laughing or hype emotes, are usually the moments worth clipping. Check those first instead of rewatching the whole stream."}},
+{"@type":"Question","name":"Why do chat spikes come after the moment itself?","acceptedAnswer":{"@type":"Answer","text":"Viewers watch on a stream delay and need a few seconds to type, so the burst of messages lands after the action. Start your clip several seconds before the spike so the setup is included."}},
+{"@type":"Question","name":"Do BTTV, 7TV and FFZ emotes matter?","acceptedAnswer":{"@type":"Answer","text":"Yes. Many channels react mostly with third-party emotes like KEKW or OMEGALUL, so counting only Twitch's built-in emotes misses a lot of the reactions."}},
+{"@type":"Question","name":"Can finding Twitch highlights be automated?","acceptedAnswer":{"@type":"Answer","text":"Yes. PogCut reads the chat replay, including BTTV, 7TV and FFZ emotes, finds reaction spikes, checks them against the transcript, and cuts the best moments into vertical captioned clips with titles and hooks. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How to find the best moments in a Twitch VOD</h1>
+<p class="lead" style="margin:0">A six-hour stream might have five moments worth posting. Rewatching the whole thing to find them takes longer than the stream did. Your chat already flagged the good parts for you; here's how to read the signal.</p>
+
+<h2>1. Get the chat replay</h2>
+<p>Every Twitch VOD keeps its chat replay. Export it with a free tool such as TwitchDownloader so you have each message with a timestamp. That file is your highlight map.</p>
+
+<h2>2. Look for chat spikes, not just busy chat</h2>
+<p>Count messages in short windows (10 to 30 seconds) across the whole stream. What matters is how much busier a window is compared to that stream's normal pace. A small channel going from 3 messages to 30 is as strong a signal as a big channel going from 300 to 3,000.</p>
+
+<h2>3. Weight the reaction emotes</h2>
+<p>Not all chat activity is a reaction. A raid or a giveaway can flood chat without anything funny happening. Give extra weight to messages that are clearly reactions:</p>
+<ul>
+<li><strong>Funny:</strong> KEKW, LUL, OMEGALUL, LMAO, ICANT</li>
+<li><strong>Hype:</strong> Pog, PogChamp, POGGERS, EZ Clap, "W"</li>
+<li><strong>Tension or fail:</strong> monkaS, "???", F, "L"</li>
+</ul>
+<p>Include BTTV, 7TV and FFZ emotes. On many channels those carry most of the reactions, so counting only Twitch's built-in emotes misses a lot.</p>
+
+<h2>4. Confirm with audio and the transcript</h2>
+<p>A chat spike tells you where to look. The audio and transcript tell you whether the moment works on its own. Loud reactions, laughter, a quotable line, or a sudden silence are good signs. If the moment only makes sense with 20 minutes of context, skip it; short-form viewers won't have that context.</p>
+
+<h2>5. Start before the spike</h2>
+<p>Viewers watch on a delay and need a few seconds to type, so the burst of messages lands after the action. Start the clip several seconds earlier so the setup is in it, and end right after the payoff. Trailing reactions can usually go.</p>
+
+<h2>6. Rank, cut and post</h2>
+<p>Keep the strongest handful of moments rather than every spike. Crop each to vertical 9:16 with your face cam and the action both visible, add captions, and write a title and opening hook. The <a href="../twitch-clip-titles-hooks/">titles and hooks guide</a> covers that part, and the <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a> walks through the editing.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Let PogCut find them for you</h2>
+<p>PogCut does all of the above automatically: it reads your VOD's chat replay (including BTTV, 7TV and FFZ emotes), finds reaction spikes relative to your channel's normal pace, checks them against the transcript, and cuts each moment to start right before the payoff. You get vertical 1080p clips with captions, a title and a hook. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a> · <a href="../twitch-clip-titles-hooks/">Titles and hooks guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+</body>
+</html>

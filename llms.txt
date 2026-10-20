@@ -15,3 +15,5 @@
 - [Home](https://pogcut.github.io/): overview, how it works, what a clip pack includes, pricing, FAQ, signup
 - [Guide: turn a Twitch VOD into TikTok, Shorts and Reels clips](https://pogcut.github.io/guides/twitch-vod-to-tiktok/): step-by-step manual method, plus how PogCut automates it
 - [Guide: Twitch clip titles and hooks](https://pogcut.github.io/guides/twitch-clip-titles-hooks/): how to write the first 2 seconds, on-screen text and curiosity-gap titles for stream highlights, with title templates
+- [Guide: find the best moments in a Twitch VOD](https://pogcut.github.io/guides/find-twitch-vod-highlights/): using chat spikes, BTTV/7TV/FFZ emote bursts, audio and the transcript to find highlights, and why clips should start before the chat spike
+- [All guides](https://pogcut.github.io/guides/): index of PogCut guides for Twitch streamers
