@@ -24,6 +24,7 @@
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://pogcut.github.io/#org","name":"PogCut","alternateName":"PogCut Clips","url":"https://pogcut.github.io/","logo":"https://pogcut.github.io/assets/favicon.png"},
 {"@type":"Service","name":"PogCut highlight clip packs","serviceType":"Video editing / short-form clip creation","provider":{"@id":"https://pogcut.github.io/#org"},"audience":{"@type":"Audience","audienceType":"Twitch streamers"},"description":"PogCut turns Twitch VODs into vertical, captioned highlight clips for TikTok, YouTube Shorts and Instagram Reels, using chat reactions and AI to find funny and hype moments.","areaServed":"Worldwide","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free beta – early-access waitlist"}},
+{"@type":"VideoObject","name":"PogCut demo clip: Phew! Character Survives in VALOR MORTIS","description":"Demo vertical highlight clip made by PogCut from a public CohhCarnage Twitch VOD. Not affiliated with or endorsed by CohhCarnage.","thumbnailUrl":"https://pogcut.github.io/assets/demo/cohhcarnage-demo.jpg","contentUrl":"https://pogcut.github.io/assets/demo/cohhcarnage-demo.mp4","uploadDate":"2026-10-22","duration":"PT25S"},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"How does PogCut find highlights?","acceptedAnswer":{"@type":"Answer","text":"We look at spikes in your Twitch chat activity, then an AI model reviews the transcript around each spike to pick moments that are actually funny or hype."}},
 {"@type":"Question","name":"Do I need to upload my VODs?","acceptedAnswer":{"@type":"Answer","text":"No. You give us your Twitch channel and we pull your past broadcasts automatically. Only your channel is processed, and only after you opt in."}},
@@ -60,11 +61,17 @@
 <section id="sample" class="section sample">
   <div>
     <h2>What's in a clip pack</h2>
-    <p>Every clip is picked, cropped and captioned automatically from your VOD. Sample clips from opted-in beta streamers are coming soon. Until then, here's what you get:</p>
+    <p>Every clip is picked, cropped and captioned automatically from your VOD. Below is a labeled demo made from a public VOD. Here's what you get:</p>
     <ul class="ticks"><li>Moments picked from chat reactions (including BTTV, 7TV and FFZ emotes) plus AI review of what was said</li><li>Vertical 9:16 at 1080p with burned-in captions</li><li>Webcam on top, gameplay zoomed below</li><li>A suggested title and hook for each clip</li></ul>
   </div>
-  <figure class="phone">
-    <div class="card" style="padding:2rem;text-align:center">Sample clips from opted-in beta streamers coming soon. <a href="#signup">Join the beta</a> and yours could be first.</div>
+  <figure class="phone" style="max-width:320px;margin:0 auto">
+    <div style="position:relative;width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#000">
+      <video controls playsinline preload="metadata" poster="assets/demo/cohhcarnage-demo.jpg" style="width:100%;height:100%;object-fit:cover;display:block" aria-label="Demo clip: Phew! Character Survives in VALOR MORTIS">
+        <source src="assets/demo/cohhcarnage-demo.mp4" type="video/mp4">
+        Your browser can't play this video. <a href="assets/demo/cohhcarnage-demo.mp4">Download the demo clip</a>.
+      </video>
+    </div>
+    <figcaption class="muted" style="font-size:.85rem;margin-top:.6rem;text-align:center"><strong>Demo clip</strong>, made by PogCut from a public <a href="https://www.twitch.tv/cohhcarnage" rel="noopener" target="_blank">CohhCarnage</a> VOD (<a href="https://www.twitch.tv/videos/2900742360?t=0h20m18s" rel="noopener" target="_blank">watch the original</a>). Not affiliated with or endorsed by CohhCarnage.</figcaption>
   </figure>
 </section>
 
