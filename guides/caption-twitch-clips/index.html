@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Add Word-by-Word Captions to Twitch Clips for Free (Whisper + FFmpeg) – PogCut</title>
+<meta name="description" content="Add TikTok-style word-by-word captions to Twitch clips for free: transcribe with open-source Whisper, get word timestamps, style an .ass subtitle file and burn it in with FFmpeg. Includes caption style tips for Shorts and Reels.">
+<link rel="canonical" href="https://pogcut.github.io/guides/caption-twitch-clips/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How to add word-by-word captions to Twitch clips for free">
+<meta property="og:description" content="Transcribe with Whisper, style the captions, and burn them in with FFmpeg. Free, step by step.">
+<meta property="og:url" content="https://pogcut.github.io/guides/caption-twitch-clips/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}.guide pre{overflow-x:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-size:.9rem}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How to add word-by-word captions to Twitch clips for free","description":"Transcribe a Twitch clip with open-source Whisper, build a styled subtitle file with word timing, and burn it into the video with FFmpeg.","image":"https://pogcut.github.io/assets/og-image.png","tool":[{"@type":"HowToTool","name":"Whisper (open source)"},{"@type":"HowToTool","name":"FFmpeg"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Trim the clip first","text":"Cut the moment out of the VOD before transcribing, so transcription only runs on the few seconds you will post."},
+{"@type":"HowToStep","position":2,"name":"Transcribe with word timestamps","text":"Run open-source Whisper (or faster-whisper) on the clip with word-level timestamps turned on, so every word has its own start and end time."},
+{"@type":"HowToStep","position":3,"name":"Fix names and slang","text":"Correct the streamer's name, game terms, and chat slang that speech recognition gets wrong before styling anything."},
+{"@type":"HowToStep","position":4,"name":"Group words into short lines","text":"Show two to four words at a time and highlight the word being spoken, which is the style viewers know from TikTok and Shorts."},
+{"@type":"HowToStep","position":5,"name":"Style an .ass subtitle file","text":"Use a bold font, a thick outline, and place captions in the middle third of the vertical frame, away from the app's buttons and description."},
+{"@type":"HowToStep","position":6,"name":"Burn in with FFmpeg","text":"Use FFmpeg's subtitles filter to burn the .ass file into the vertical clip so captions show on every platform."}]},
+{"@type":"Article","headline":"How to add word-by-word captions to Twitch clips for free","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-10-22","dateModified":"2026-10-22","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/caption-twitch-clips/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Should I burn in captions or upload a subtitle file?","acceptedAnswer":{"@type":"Answer","text":"For short clips, burn them in. Burned-in captions look the same on TikTok, YouTube Shorts and Instagram Reels and can be styled word by word, while uploaded subtitle files depend on each app's own caption display."}},
+{"@type":"Question","name":"Is Whisper free to use for captions?","acceptedAnswer":{"@type":"Answer","text":"Yes. OpenAI released Whisper as open-source software, so you can run it on your own computer for free. faster-whisper is a free reimplementation that runs faster on the same hardware."}},
+{"@type":"Question","name":"Where should captions go on a vertical clip?","acceptedAnswer":{"@type":"Answer","text":"Around the middle of the frame or just below it. The bottom of the screen is covered by the caption, username and buttons in most short-video apps, and the very top often overlaps the app's own controls."}},
+{"@type":"Question","name":"Can captioning Twitch clips be automated?","acceptedAnswer":{"@type":"Answer","text":"Yes. PogCut transcribes each highlight, times every word, and burns styled word-by-word captions into vertical 1080p clips automatically. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How to add word-by-word captions to Twitch clips for free</h1>
+<p class="lead" style="margin:0">Lots of people scroll short-form video with the sound off, and a stream clip with no captions loses them in the first second. You don't need a paid caption app: two free tools, Whisper and FFmpeg, get you the bold word-by-word style you see on TikTok and Shorts.</p>
+
+<h2>1. Trim the clip first</h2>
+<p>Cut the moment out of the VOD before you transcribe anything. Transcribing a 30-second clip takes seconds; transcribing a six-hour stream takes a long time and most of it gets thrown away. If you still need to find the moment, start with the <a href="../find-twitch-vod-highlights/">finding highlights guide</a>.</p>
+
+<h2>2. Transcribe with word timestamps</h2>
+<p>Install open-source <strong>Whisper</strong> (or <strong>faster-whisper</strong>, a free reimplementation that runs faster) and turn on word-level timestamps. That gives you each word with its own start and end time, which is what makes word-by-word captions possible.</p>
+<pre>whisper clip.mp4 --model small --word_timestamps True --output_format json</pre>
+<p>The small model is a good balance of speed and accuracy on a normal laptop. Use a larger one if your mic is noisy or game audio is loud.</p>
+
+<h2>3. Fix names, game terms and slang</h2>
+<p>Speech recognition gets streamer names, game terms and chat slang wrong all the time. Fix those in the transcript before styling. A caption that misspells the streamer's own name is the fastest way to look low effort.</p>
+
+<h2>4. Show two to four words at a time</h2>
+<p>Full sentences on screen are hard to read on a phone. Group words into short chunks and highlight the word being spoken, either with a color change or a slight size bump. Break chunks at natural pauses so a line never ends in the middle of a phrase.</p>
+
+<h2>5. Style it as an .ass subtitle file</h2>
+<p>The .ass subtitle format supports fonts, outlines, colors and per-word timing, so it's the easiest way to get the TikTok look out of FFmpeg. A few rules that hold up on every app:</p>
+<ul>
+<li><strong>Bold, heavy font</strong> with a thick dark outline, so it reads over bright game footage.</li>
+<li><strong>Middle of the frame</strong> or just below it. The bottom of the screen gets covered by the app's caption, username and buttons.</li>
+<li><strong>Big enough to read at arm's length</strong>, roughly the width of a thumb per word on a 1080x1920 frame.</li>
+<li><strong>One highlight color</strong> for the active word, and keep it consistent across all your clips so people recognize your channel.</li>
+</ul>
+
+<h2>6. Burn the captions in with FFmpeg</h2>
+<p>Burn the captions into the video rather than uploading a separate subtitle file. That way they look the same on TikTok, Shorts and Reels.</p>
+<pre>ffmpeg -i clip_vertical.mp4 -vf "subtitles=captions.ass" -c:a copy clip_captioned.mp4</pre>
+<p>Do this after you crop to vertical 9:16, so the caption positions match the final frame. The <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a> covers the cropping, and the <a href="../twitch-clip-titles-hooks/">titles and hooks guide</a> covers the on-screen text for the first two seconds.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Skip the caption work</h2>
+<p>PogCut does every step above for you: it transcribes each highlight, times every word, and burns bold word-by-word captions into vertical 1080p clips, along with a title and hook. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../find-twitch-vod-highlights/">Finding highlights guide</a> · <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a> · <a href="../twitch-clip-titles-hooks/">Titles and hooks guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+</body>
+</html>
