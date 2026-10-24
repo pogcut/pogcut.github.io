@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Stack Webcam Over Gameplay in a Vertical Twitch Clip (Free FFmpeg Method) – PogCut</title>
+<meta name="description" content="Make a 9:16 Twitch clip with your webcam on top and gameplay below, for TikTok, YouTube Shorts and Reels. Free FFmpeg command, crop math for 1080x1920, and layout tips for streams with and without a facecam.">
+<link rel="canonical" href="https://pogcut.github.io/guides/webcam-gameplay-vertical-layout/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How to stack webcam over gameplay in a vertical Twitch clip">
+<meta property="og:description" content="The split-screen facecam layout for TikTok and Shorts, made free with one FFmpeg command.">
+<meta property="og:url" content="https://pogcut.github.io/guides/webcam-gameplay-vertical-layout/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}.guide pre{overflow-x:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-size:.9rem;white-space:pre-wrap}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How to stack webcam over gameplay in a vertical Twitch clip","description":"Crop the facecam and the gameplay out of a 16:9 Twitch clip and stack them into a 1080x1920 vertical video with FFmpeg.","image":"https://pogcut.github.io/assets/og-image.png","tool":[{"@type":"HowToTool","name":"FFmpeg"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Find the webcam rectangle","text":"Pause the clip on a frame and note the facecam's x, y, width and height in pixels on the 1920x1080 source."},
+{"@type":"HowToStep","position":2,"name":"Pick the gameplay crop","text":"Choose the part of the game that matters, usually the center, and crop it at the same shape as the bottom panel so nothing gets stretched."},
+{"@type":"HowToStep","position":3,"name":"Do the 1080x1920 math","text":"Split the 1920-pixel height between the panels, for example 608 pixels for a 16:9 webcam and 1312 pixels for gameplay."},
+{"@type":"HowToStep","position":4,"name":"Stack with FFmpeg","text":"Use FFmpeg's crop, scale and vstack filters in one command to build the vertical clip, keeping the original frame rate and audio."},
+{"@type":"HowToStep","position":5,"name":"Check the safe zones","text":"Watch the result on a phone and make sure faces, the action and captions aren't under the app's buttons or description."}]},
+{"@type":"Article","headline":"How to stack webcam over gameplay in a vertical Twitch clip","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-10-23","dateModified":"2026-10-23","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/webcam-gameplay-vertical-layout/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What size should a vertical Twitch clip be?","acceptedAnswer":{"@type":"Answer","text":"1080x1920 pixels (9:16). It's the standard full-screen size for TikTok, YouTube Shorts and Instagram Reels, and it lets you keep a 1080p stream at full width."}},
+{"@type":"Question","name":"Should the webcam go on top or bottom?","acceptedAnswer":{"@type":"Answer","text":"Most stream clips put the webcam on top and gameplay below, because the face reaction is what people look at first and the bottom of the screen is partly covered by the app's caption and buttons."}},
+{"@type":"Question","name":"What if the streamer has no facecam?","acceptedAnswer":{"@type":"Answer","text":"Use a single centered crop of the gameplay, or put a blurred, zoomed copy of the full frame behind a smaller sharp copy so the whole scene stays visible."}},
+{"@type":"Question","name":"Can this layout be made automatically?","acceptedAnswer":{"@type":"Answer","text":"Yes. PogCut builds the webcam-on-top, gameplay-below layout for each highlight automatically and exports captioned 1080x1920 clips at 60fps. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How to stack webcam over gameplay in a vertical Twitch clip</h1>
+<p class="lead" style="margin:0">A plain center crop of a stream cuts off either your face or the game. The layout you see on most stream clips on TikTok and Shorts splits the screen: facecam on top, gameplay below. You can build it for free with one FFmpeg command.</p>
+
+<h2>1. Find the webcam rectangle</h2>
+<p>Open the clip in any player, pause on a frame, and take a screenshot. In an image editor, note where your facecam sits on the 1920x1080 frame: its left edge (x), top edge (y), width and height. A common bottom-right facecam might be 480x270 starting at x=1420, y=790. Trim tight so no game UI or overlay border sneaks in.</p>
+
+<h2>2. Pick the gameplay crop</h2>
+<p>Decide which part of the game matters. For shooters it's usually the center, around the crosshair. For strategy or card games you may need a wider slice. Crop it at the same shape as the panel it will fill, or it will look stretched.</p>
+
+<h2>3. Do the 1080x1920 math</h2>
+<p>The finished clip is 1080 pixels wide and 1920 tall. A 16:9 webcam scaled to 1080 wide is 608 tall, which leaves 1312 for gameplay. To fill a 1080x1312 panel without stretching, crop a slice of the game that is about 888x1080 from the source (1080 ÷ 1312 × 1080 ≈ 888).</p>
+<ul>
+<li><strong>Webcam panel:</strong> 1080x608 (top).</li>
+<li><strong>Gameplay panel:</strong> 1080x1312 (bottom), from an 888x1080 center slice starting at x=516.</li>
+<li>Want a bigger game? Give the webcam less height and crop it a little wider than 16:9 instead.</li>
+</ul>
+
+<h2>4. Stack it with FFmpeg</h2>
+<p>This one command crops both parts, scales them and stacks them, keeping your original frame rate and audio:</p>
+<pre>ffmpeg -i clip.mp4 -filter_complex "[0:v]crop=480:270:1420:790,scale=1080:608[cam];[0:v]crop=888:1080:516:0,scale=1080:1312[game];[cam][game]vstack=inputs=2,setsar=1[v]" -map "[v]" -map 0:a -c:v libx264 -crf 20 -preset veryfast -c:a aac -b:a 160k clip_vertical.mp4</pre>
+<p>Swap in your own webcam numbers from step 1. The crop filter reads <code>width:height:x:y</code>. If you stream at 60fps, the output stays 60fps, which keeps fast games smooth on Shorts.</p>
+
+<h2>5. Check the safe zones on a phone</h2>
+<p>Short-video apps cover the bottom of the screen with the caption, username and buttons, and the right edge with like and share icons. Send the clip to your phone and check that the action and your face aren't hidden. Captions go best near the middle, around the line between the two panels.</p>
+
+<h2>No facecam? Two options</h2>
+<ul>
+<li><strong>Single center crop:</strong> crop a 608x1080 slice from the middle and scale it to 1080x1920. Best when the action stays centered.</li>
+<li><strong>Blurred background:</strong> put a blurred, zoomed copy of the full frame behind a sharp 1080-wide copy of the whole 16:9 frame. Nothing gets cut off, at the cost of a smaller game view.</li>
+</ul>
+
+<p>Next steps: add captions with the <a href="../caption-twitch-clips/">word-by-word captions guide</a>, write the first two seconds with the <a href="../twitch-clip-titles-hooks/">titles and hooks guide</a>, or see the full workflow in the <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a>.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Skip the cropping</h2>
+<p>PogCut finds the highlights in your VOD, builds the webcam-on-top, gameplay-below layout for each one, and burns in captions, exported at 1080x1920 and 60fps. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../caption-twitch-clips/">Captions guide</a> · <a href="../find-twitch-vod-highlights/">Finding highlights guide</a> · <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a> · <a href="../twitch-clip-titles-hooks/">Titles and hooks guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+</body>
+</html>

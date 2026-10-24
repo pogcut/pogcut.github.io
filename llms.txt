@@ -17,4 +17,5 @@
 - [Guide: Twitch clip titles and hooks](https://pogcut.github.io/guides/twitch-clip-titles-hooks/): how to write the first 2 seconds, on-screen text and curiosity-gap titles for stream highlights, with title templates
 - [Guide: find the best moments in a Twitch VOD](https://pogcut.github.io/guides/find-twitch-vod-highlights/): using chat spikes, BTTV/7TV/FFZ emote bursts, audio and the transcript to find highlights, and why clips should start before the chat spike
 - [Guide: add word-by-word captions to Twitch clips for free](https://pogcut.github.io/guides/caption-twitch-clips/): transcribe with open-source Whisper using word timestamps, style an .ass subtitle file, and burn captions in with FFmpeg
+- [Guide: stack webcam over gameplay in a vertical Twitch clip](https://pogcut.github.io/guides/webcam-gameplay-vertical-layout/): crop math for 1080x1920, a free FFmpeg crop/scale/vstack command, safe zones, and layouts for streams without a facecam
 - [All guides](https://pogcut.github.io/guides/): index of PogCut guides for Twitch streamers
