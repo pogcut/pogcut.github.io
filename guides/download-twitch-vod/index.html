@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Download Your Twitch VOD Before It Expires (Free Methods) – PogCut</title>
+<meta name="description" content="Twitch deletes past broadcasts after 7, 14 or 60 days. How to save your own VODs from the Video Producer, grab just the highlight section with the free yt-dlp tool, and keep Highlights under the 100-hour limit.">
+<link rel="canonical" href="https://pogcut.github.io/guides/download-twitch-vod/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How to download your Twitch VOD before it expires">
+<meta property="og:description" content="Save your past broadcasts before Twitch deletes them, or download only the minutes you want to clip.">
+<meta property="og:url" content="https://pogcut.github.io/guides/download-twitch-vod/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}.guide pre{overflow-x:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-size:.9rem;white-space:pre-wrap}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How to download your Twitch VOD before it expires","description":"Turn on past broadcast storage, then download your own Twitch VODs from the Video Producer or grab just the part you want with yt-dlp.","image":"https://pogcut.github.io/assets/og-image.png","tool":[{"@type":"HowToTool","name":"Twitch Video Producer"},{"@type":"HowToTool","name":"yt-dlp"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Turn on Store past broadcasts","text":"In the Creator Dashboard stream settings, enable Store past broadcasts. Twitch doesn't save VODs until this is on."},
+{"@type":"HowToStep","position":2,"name":"Know your deadline","text":"Past broadcasts are kept 7 days for most streamers, 14 days for Affiliates, and 60 days for Partners, Turbo and Prime users."},
+{"@type":"HowToStep","position":3,"name":"Download from the Video Producer","text":"In the Creator Dashboard, open Content, then Video Producer, open the three-dot menu on a past broadcast and choose Download."},
+{"@type":"HowToStep","position":4,"name":"Or grab only the highlight section","text":"Use the free open-source yt-dlp tool with --download-sections to save just the minutes you want to clip instead of a multi-hour file."},
+{"@type":"HowToStep","position":5,"name":"Keep originals at full quality","text":"Download the source quality (1080p60 if you stream it) so vertical crops and captions stay sharp."}]},
+{"@type":"Article","headline":"How to download your Twitch VOD before it expires","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-10-24","dateModified":"2026-10-24","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/download-twitch-vod/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How long does Twitch keep VODs?","acceptedAnswer":{"@type":"Answer","text":"According to Twitch's help center, past broadcasts are kept for 60 days for Partners, Turbo and Prime users, 14 days for Affiliates, and 7 days for everyone else. Highlights and uploads are stored indefinitely, within a combined 100-hour limit."}},
+{"@type":"Question","name":"Why didn't my stream save as a VOD?","acceptedAnswer":{"@type":"Answer","text":"Past broadcast storage is off by default. Turn on Store past broadcasts in your stream settings; Twitch only saves streams made after it's enabled."}},
+{"@type":"Question","name":"Can I download a whole batch of VODs at once?","acceptedAnswer":{"@type":"Answer","text":"Not from the Video Producer, which downloads one video at a time. Command-line tools like yt-dlp can take a list of VOD links and download them one after another."}},
+{"@type":"Question","name":"Do I have to download the VOD to make clips?","acceptedAnswer":{"@type":"Answer","text":"Not with PogCut. You send a VOD link while it's still on Twitch, and PogCut finds the highlights and exports vertical, captioned 1080x1920 clips. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How to download your Twitch VOD before it expires</h1>
+<p class="lead" style="margin:0">Twitch doesn't keep your streams forever. If a great moment is sitting in last week's broadcast, you may have only days left to save it. Here's how to download your own VODs for free, or grab just the part you want to clip.</p>
+
+<h2>1. Make sure Twitch is saving your streams</h2>
+<p>Past broadcast storage is <strong>off by default</strong>. In the Creator Dashboard, go to your stream settings and turn on <em>Store past broadcasts</em>. Only streams made after you switch it on get saved, so do this before your next stream.</p>
+
+<h2>2. Know your deadline</h2>
+<p>Twitch's <a href="https://help.twitch.tv/s/article/video-on-demand" rel="noopener">help center</a> lists these retention windows for past broadcasts:</p>
+<ul>
+<li><strong>Partners, Turbo and Prime users:</strong> 60 days.</li>
+<li><strong>Affiliates:</strong> 14 days.</li>
+<li><strong>Everyone else:</strong> 7 days.</li>
+</ul>
+<p>Two catches: if you stream in 2K or dual-format vertical, those extra versions expire after 7 days even when the regular 1080p VOD lasts longer. Highlights and uploads stay indefinitely but share a 100-hour storage cap, so turning every stream into a Highlight isn't a long-term backup.</p>
+
+<h2>3. Download from the Video Producer</h2>
+<p>The official way: in the Creator Dashboard open <em>Content</em>, then <em>Video Producer</em>. Find the past broadcast, open its three-dot menu and choose <em>Download</em>. Twitch prepares the file and it downloads at the quality you streamed. It's one video at a time, and a four-hour 1080p60 stream can be many gigabytes.</p>
+
+<h2>4. Or grab only the highlight section with yt-dlp</h2>
+<p>If you only need a few minutes, the free, open-source <a href="https://github.com/yt-dlp/yt-dlp" rel="noopener">yt-dlp</a> tool can download just that slice of a VOD. Copy the VOD link from your channel and give it the start and end times:</p>
+<pre>yt-dlp --download-sections "*1:02:30-1:05:00" -o "highlight.%(ext)s" "https://www.twitch.tv/videos/VOD_ID"</pre>
+<p>This saves 2 minutes 30 seconds starting at 1:02:30 instead of the full stream. Start a few seconds before the moment you remember; the setup is what makes a clip land. To list the available qualities first, run <code>yt-dlp -F</code> with the same link. Only download VODs you own or have the streamer's permission to use.</p>
+
+<h2>5. Keep the original quality</h2>
+<p>Save the source quality, usually 1080p60. You'll crop it down to a 9:16 frame for TikTok and Shorts, so starting from a soft 720p file makes the final clip blurry. Keep the original frame rate too; fast games look noticeably better at 60fps.</p>
+
+<p>Next steps: find the best moments with the <a href="../find-twitch-vod-highlights/">VOD highlights guide</a>, make it vertical with the <a href="../webcam-gameplay-vertical-layout/">webcam-over-gameplay layout guide</a>, then add <a href="../caption-twitch-clips/">word-by-word captions</a>.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Skip the downloading</h2>
+<p>Send PogCut a VOD link while it's still on Twitch. It finds the highlights, builds the vertical webcam-and-gameplay layout and burns in captions, exported at 1080x1920 and 60fps. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../find-twitch-vod-highlights/">Finding highlights guide</a> · <a href="../webcam-gameplay-vertical-layout/">Vertical layout guide</a> · <a href="../caption-twitch-clips/">Captions guide</a> · <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+</body>
+</html>
