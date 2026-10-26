@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Post Twitch Clips as YouTube Shorts (Length, Format, Copyright) – PogCut</title>
+<meta name="description" content="Turn Twitch highlights into YouTube Shorts: the 3-minute limit, 9:16 1080x1920 export settings with a free FFmpeg command, and why game or stream music can get Shorts over one minute blocked.">
+<link rel="canonical" href="https://pogcut.github.io/guides/twitch-clips-youtube-shorts/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How to post Twitch clips as YouTube Shorts">
+<meta property="og:description" content="Length limits, export settings and the copyright rule that blocks long Shorts.">
+<meta property="og:url" content="https://pogcut.github.io/guides/twitch-clips-youtube-shorts/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}.guide pre{overflow-x:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-size:.9rem;white-space:pre-wrap}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How to post Twitch clips as YouTube Shorts","description":"Trim a Twitch highlight, export it as a vertical 1080x1920 video under three minutes, check the audio for copyrighted music, and upload it as a Short.","image":"https://pogcut.github.io/assets/og-image.png","tool":[{"@type":"HowToTool","name":"FFmpeg"},{"@type":"HowToTool","name":"YouTube Studio"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Pick a length","text":"YouTube treats square or vertical videos up to three minutes as Shorts. Most stream highlights work best well under a minute."},
+{"@type":"HowToStep","position":2,"name":"Check the music","text":"A Short over one minute with any active copyright claim is blocked globally, so keep clips with game soundtracks or stream music under 60 seconds or cut the music."},
+{"@type":"HowToStep","position":3,"name":"Export vertical 1080x1920","text":"Crop the 16:9 stream to 9:16 and export H.264 video with AAC audio at 1080x1920, keeping 60fps."},
+{"@type":"HowToStep","position":4,"name":"Write the title and first second","text":"Put the payoff or the question in the title and on screen in the first second."},
+{"@type":"HowToStep","position":5,"name":"Upload as a Short","text":"Upload from the YouTube app or YouTube Studio; vertical videos up to three minutes are categorized as Shorts automatically."}]},
+{"@type":"Article","headline":"How to post Twitch clips as YouTube Shorts","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-10-25","dateModified":"2026-10-25","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/twitch-clips-youtube-shorts/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How long can a YouTube Short be?","acceptedAnswer":{"@type":"Answer","text":"Up to three minutes. Per YouTube Help, videos uploaded on or after October 15, 2024 with a square or vertical aspect ratio and up to three minutes long are categorized as Shorts."}},
+{"@type":"Question","name":"Why was my Twitch clip Short blocked?","acceptedAnswer":{"@type":"Answer","text":"YouTube blocks any Short over one minute that has an active copyright claim of any type. Game soundtracks and music playing on stream often trigger Content ID. Trim the clip under 60 seconds, remove the music, or dispute the claim if it was made in error."}},
+{"@type":"Question","name":"What resolution should a Short be?","acceptedAnswer":{"@type":"Answer","text":"Export vertical 9:16 at 1080x1920. Keeping your stream's 60fps makes fast gameplay look smoother."}},
+{"@type":"Question","name":"Can PogCut make Shorts from my Twitch VOD?","acceptedAnswer":{"@type":"Answer","text":"Yes. Send PogCut a VOD link and it finds the highlights and exports vertical, captioned 1080x1920 60fps clips ready for Shorts, TikTok and Reels. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How to post Twitch clips as YouTube Shorts</h1>
+<p class="lead" style="margin:0">YouTube Shorts is one of the easiest places to grow a stream audience from highlights you already have. Here's how long a Short can be, how to export one from a Twitch clip, and the copyright rule that quietly blocks a lot of gaming Shorts.</p>
+
+<h2>1. Pick the right length</h2>
+<p>According to <a href="https://support.google.com/youtube/answer/15424877" rel="noopener">YouTube Help</a>, any square or vertical video up to <strong>three minutes</strong> uploaded on or after October 15, 2024 is categorized as a Short. Three minutes is a ceiling, not a target: most stream moments land best when they get straight to the setup and end right after the payoff. If a clip needs a long story, it may work better as a regular video.</p>
+
+<h2>2. Watch out for music over one minute</h2>
+<p>This is the one that catches streamers. YouTube says a Short <strong>over one minute with an active copyright claim of any type is blocked globally</strong>: not playable, not recommended, not monetized. Shorts under a minute aren't affected by that rule. Game soundtracks, songs playing on stream and alert sounds can all trigger Content ID, so:</p>
+<ul>
+<li>Keep clips with music in the background under 60 seconds.</li>
+<li>For longer clips, cut or mute the music section, or pick a moment without it.</li>
+<li>If a claim is wrong, you can dispute it; the Short becomes viewable again once it's resolved.</li>
+</ul>
+
+<h2>3. Export a vertical 1080x1920 file</h2>
+<p>Your stream is 16:9 and a Short should be 9:16. This free <a href="https://ffmpeg.org/" rel="noopener">FFmpeg</a> command takes a 59-second slice starting at 0:05, crops the center of a 1080p stream to vertical, scales it to 1080x1920 and keeps 60fps:</p>
+<pre>ffmpeg -ss 5 -i clip.mp4 -t 59 -vf "crop=ih*9/16:ih,scale=1080:1920,fps=60" -c:v libx264 -crf 18 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart short.mp4</pre>
+<p>A center crop works for full-screen gameplay or just-chatting. If you want your webcam on top and gameplay below, use the <a href="../webcam-gameplay-vertical-layout/">webcam-over-gameplay layout guide</a> instead. Don't have the footage yet? See <a href="../download-twitch-vod/">how to download your Twitch VOD</a>.</p>
+
+<h2>4. Win the first second</h2>
+<p>Shorts viewers swipe fast. Start a beat before the action, put a short line of text on screen that sets up the payoff, and burn in <a href="../caption-twitch-clips/">word-by-word captions</a> since many people watch muted. Our <a href="../twitch-clip-titles-hooks/">titles and hooks guide</a> has templates that work for stream moments.</p>
+
+<h2>5. Upload it</h2>
+<p>Upload from the YouTube app or YouTube Studio. A vertical file under three minutes is treated as a Short automatically. Add your Twitch channel name in the description so viewers can find the live stream, and post the same file to TikTok and Reels too (see the <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a>).</p>
+
+<div class="card">
+<h2 style="margin-top:0">Get Shorts-ready clips automatically</h2>
+<p>Send PogCut a Twitch VOD link. It finds the highlights, builds the vertical layout and burns in captions, exported at 1080x1920 and 60fps for Shorts, TikTok and Reels. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../download-twitch-vod/">Download VOD guide</a> · <a href="../webcam-gameplay-vertical-layout/">Vertical layout guide</a> · <a href="../caption-twitch-clips/">Captions guide</a> · <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+</body>
+</html>
