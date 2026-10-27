@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Post Twitch Clips as Instagram Reels (Length, Size, Export) – PogCut</title>
+<meta name="description" content="Turn Twitch highlights into Instagram Reels: why to stay under 3 minutes for reach, the 9:16 1080x1920 size, a free FFmpeg export command that keeps 60fps, and caption tips.">
+<link rel="canonical" href="https://pogcut.github.io/guides/twitch-clips-instagram-reels/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How to post Twitch clips as Instagram Reels">
+<meta property="og:description" content="The 3-minute reach limit, the right size, and a free export command for stream highlights.">
+<meta property="og:url" content="https://pogcut.github.io/guides/twitch-clips-instagram-reels/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}.guide pre{overflow-x:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-size:.9rem;white-space:pre-wrap}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How to post Twitch clips as Instagram Reels","description":"Trim a Twitch highlight to under three minutes, export it as a vertical 1080x1920 video, add captions and upload it as a Reel.","image":"https://pogcut.github.io/assets/og-image.png","tool":[{"@type":"HowToTool","name":"FFmpeg"},{"@type":"HowToTool","name":"Instagram app"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Keep it under three minutes","text":"Instagram allows Reels up to 20 minutes, but Reels over 3 minutes are not recommended to new audiences. Most stream highlights work best well under a minute."},
+{"@type":"HowToStep","position":2,"name":"Export vertical 1080x1920","text":"Crop the 16:9 stream to 9:16 and export H.264 video with AAC audio at 1080x1920. Instagram needs at least 30fps and 720 pixels; keeping 60fps is fine."},
+{"@type":"HowToStep","position":3,"name":"Add captions and a hook","text":"Burn in captions for muted viewers and put the setup on screen in the first second, keeping text away from the bottom of the frame where the caption and buttons sit."},
+{"@type":"HowToStep","position":4,"name":"Upload a clean file","text":"Upload your own exported file without another app's watermark, and mention your Twitch channel in the caption."}]},
+{"@type":"Article","headline":"How to post Twitch clips as Instagram Reels","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-10-26","dateModified":"2026-10-26","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/twitch-clips-instagram-reels/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How long can an Instagram Reel be?","acceptedAnswer":{"@type":"Answer","text":"Per Instagram Help, you can record and edit Reels up to 20 minutes, but Reels over 3 minutes won't be recommended to new audiences. For growth from stream highlights, stay under three minutes, and usually well under one."}},
+{"@type":"Question","name":"What size should a Reel be?","acceptedAnswer":{"@type":"Answer","text":"Use 9:16 vertical at 1080x1920 for full-screen viewing. Instagram accepts aspect ratios between 1.91:1 and 9:16, with a minimum of 30fps and 720 pixels."}},
+{"@type":"Question","name":"Can I upload 60fps Twitch clips to Instagram?","acceptedAnswer":{"@type":"Answer","text":"Yes. 30fps is the minimum, so a 60fps export of fast gameplay is accepted."}},
+{"@type":"Question","name":"Can PogCut make Reels from my Twitch VOD?","acceptedAnswer":{"@type":"Answer","text":"Yes. Send PogCut a VOD link and it finds the highlights and exports vertical, captioned 1080x1920 60fps clips ready for Reels, TikTok and YouTube Shorts. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How to post Twitch clips as Instagram Reels</h1>
+<p class="lead" style="margin:0">Instagram Reels puts your stream highlights in front of people who'd never browse Twitch. Here's how long a Reel should be, the size to export, and a free command that turns a Twitch clip into an upload-ready file.</p>
+
+<h2>1. Stay under three minutes</h2>
+<p><a href="https://help.instagram.com/456185931138729" rel="noopener">Instagram Help</a> says you can make Reels up to <strong>20 minutes</strong>, but <strong>Reels over 3 minutes won't be recommended to new audiences</strong>. Since the point of posting highlights is reaching people who don't follow you yet, treat three minutes as a hard ceiling. Most stream moments do best when they start right at the setup and end just after the payoff, often in 15 to 45 seconds.</p>
+
+<h2>2. Use the right size</h2>
+<p>Per Instagram's <a href="https://help.instagram.com/1038071743007909" rel="noopener">Reel size guidance</a>, Reels can be anywhere from 1.91:1 to 9:16, with at least 30fps and 720 pixels. For a full-screen Reel, export <strong>9:16 at 1080x1920</strong>. Keeping your stream's 60fps is fine and makes fast gameplay look smoother.</p>
+
+<h2>3. Export the Reel with FFmpeg</h2>
+<p>This free <a href="https://ffmpeg.org/" rel="noopener">FFmpeg</a> command takes 30 seconds starting at 0:05, crops the center of a 1080p stream to vertical, scales it to 1080x1920 and keeps 60fps. We tested it on a 1920x1080 60fps source:</p>
+<pre>ffmpeg -ss 5 -i clip.mp4 -t 30 -vf "crop=ih*9/16:ih,scale=1080:1920,fps=60" -c:v libx264 -crf 18 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart reel.mp4</pre>
+<p>A center crop suits full-screen gameplay or just-chatting. For your webcam on top and gameplay below, use the <a href="../webcam-gameplay-vertical-layout/">webcam-over-gameplay layout guide</a>. Need the footage first? See <a href="../download-twitch-vod/">how to download your Twitch VOD</a>.</p>
+
+<h2>4. Captions and the first second</h2>
+<p>Lots of people scroll Reels muted, so burn in <a href="../caption-twitch-clips/">word-by-word captions</a>. Put a short line of text on screen in the first second that sets up the payoff, and keep text in the middle of the frame: the bottom is covered by your caption, username and audio label, and the right edge by the like and share buttons. Our <a href="../twitch-clip-titles-hooks/">titles and hooks guide</a> has hook templates that work for stream moments.</p>
+
+<h2>5. Upload a clean file</h2>
+<p>Upload the file you exported rather than a download from another app with its watermark on it. In the caption, name your Twitch channel so viewers can find you live. The same 1080x1920 file also works for <a href="../twitch-clips-youtube-shorts/">YouTube Shorts</a> and <a href="../twitch-vod-to-tiktok/">TikTok</a>.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Get Reels-ready clips automatically</h2>
+<p>Send PogCut a Twitch VOD link. It finds the highlights, builds the vertical layout and burns in captions, exported at 1080x1920 and 60fps for Reels, TikTok and Shorts. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../twitch-clips-youtube-shorts/">YouTube Shorts guide</a> · <a href="../caption-twitch-clips/">Captions guide</a> · <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+</body>
+</html>
