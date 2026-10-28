@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Clip on Twitch (60-Second Limit, Vertical Layout, Sharing) – PogCut</title>
+<meta name="description" content="Make a Twitch clip from a live stream or VOD, set the vertical Stacked or Full layout, share to TikTok, Shorts and Reels, and what to do when a moment runs past 60 seconds.">
+<link rel="canonical" href="https://pogcut.github.io/guides/how-to-clip-on-twitch/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How to clip on Twitch">
+<meta property="og:description" content="The 60-second limit, the vertical layout editor, direct sharing, and longer moments.">
+<meta property="og:url" content="https://pogcut.github.io/guides/how-to-clip-on-twitch/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}.guide pre{overflow-x:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-size:.9rem;white-space:pre-wrap}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How to clip on Twitch","description":"Create a Twitch clip of up to 60 seconds from a live stream or past broadcast, set its vertical layout, and share it to short-video apps.","image":"https://pogcut.github.io/assets/og-image.png","tool":[{"@type":"HowToTool","name":"Twitch Clip Creator"},{"@type":"HowToTool","name":"FFmpeg"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Open the Clip Creator","text":"Click the clip icon on a live stream or past broadcast. The Clip Creator opens as a movable overlay and mutes the stream so you can hear the clip."},
+{"@type":"HowToStep","position":2,"name":"Pick up to 60 seconds","text":"Drag the slider under the player to select the moment, up to 60 seconds long."},
+{"@type":"HowToStep","position":3,"name":"Check the crop, title and publish","text":"Accept, adjust or dismiss the suggested crop (anything from 16:9 landscape to 9:16 portrait), give the clip a title and click Publish."},
+{"@type":"HowToStep","position":4,"name":"Set the vertical layout","text":"In Creator Dashboard, Content, Clips, open a clip with the scissors icon and choose a portrait layout: Stacked for webcam over gameplay, or Full."},
+{"@type":"HowToStep","position":5,"name":"Share it","text":"From the Share menu, post directly to YouTube, TikTok, Instagram or Snapchat, or copy the link."}]},
+{"@type":"Article","headline":"How to clip on Twitch","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-10-27","dateModified":"2026-10-27","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/how-to-clip-on-twitch/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How long can a Twitch clip be?","acceptedAnswer":{"@type":"Answer","text":"Per Twitch Help, you can make a clip up to 60 seconds long using the slider in the Clip Creator."}},
+{"@type":"Question","name":"Can I clip a past broadcast, not just a live stream?","acceptedAnswer":{"@type":"Answer","text":"Yes. The clip icon works on live streams and on past broadcasts (VODs), as long as the VOD is still available."}},
+{"@type":"Question","name":"How do I make a vertical Twitch clip?","acceptedAnswer":{"@type":"Answer","text":"When creating a clip you can choose any aspect ratio from 16:9 to 9:16. For clips of your own channel, open the clip in the Clips Manager with the scissors icon and pick a portrait layout: Stacked (camera and gameplay) or Full."}},
+{"@type":"Question","name":"What if my moment is longer than 60 seconds?","acceptedAnswer":{"@type":"Answer","text":"Make two back-to-back clips and join them with FFmpeg's concat filter, or download that section of the VOD and cut it yourself. YouTube Shorts allows up to 3 minutes."}},
+{"@type":"Question","name":"Can PogCut clip my Twitch streams for me?","acceptedAnswer":{"@type":"Answer","text":"Yes. Send PogCut a VOD link and it finds the highlights and exports vertical, captioned 1080x1920 60fps clips ready for TikTok, YouTube Shorts and Reels. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How to clip on Twitch</h1>
+<p class="lead" style="margin:0">Twitch's built-in Clip Creator is the fastest way to save a moment. Here's how to make a clip, get a clean vertical version for TikTok, Shorts and Reels, and what to do when the moment runs longer than Twitch allows.</p>
+
+<h2>1. Make the clip (up to 60 seconds)</h2>
+<p>According to <a href="https://help.twitch.tv/s/article/how-to-use-clips" rel="noopener">Twitch Help</a>, you click the <strong>clip icon</strong> on a live stream or a past broadcast to open the Clip Creator. It opens as an overlay you can drag around the page, and it mutes the stream so you can hear the clip. Then:</p>
+<ol>
+<li>Drag the slider under the player to pick the moment, <strong>up to 60 seconds</strong>.</li>
+<li>Review the suggested crop. Twitch detects your camera and gameplay and suggests a frame; you can pick anything from landscape 16:9 to portrait 9:16.</li>
+<li>Give the clip a title and click <strong>Publish</strong>.</li>
+</ol>
+<p>On mobile you may need to tap the video before the clip icon shows up.</p>
+
+<h2>2. Fix the vertical layout</h2>
+<p>For clips of your own channel, go to <strong>Creator Dashboard, Content, Clips</strong>, select a clip and click the scissors icon. You can re-trim, retitle, add captions, and choose a portrait layout: <strong>Stacked</strong> puts your camera over the gameplay, and <strong>Full</strong> uses one frame, which suits just-chatting or streams without a cam. Want more control over the stack? Our <a href="../webcam-gameplay-vertical-layout/">webcam-over-gameplay guide</a> has a free FFmpeg command for it.</p>
+
+<h2>3. Share it</h2>
+<p>The Share menu can post a clip straight to YouTube, TikTok, Instagram and Snapchat, or copy a link for anywhere else. Streamers decide whether viewers can export their clips to social accounts. Before you post, it's worth checking the first second: a clip that starts on the setup, not three seconds before it, holds viewers. See our <a href="../twitch-clip-titles-hooks/">titles and hooks guide</a>.</p>
+
+<h2>4. When the moment is longer than 60 seconds</h2>
+<p>Good stream stories often run 70 to 120 seconds. Two ways to keep the whole thing:</p>
+<ul>
+<li><strong>Join two clips.</strong> Make back-to-back clips, download both, and join them with <a href="https://ffmpeg.org/" rel="noopener">FFmpeg</a>. We tested this on two 1080x1920 60fps files; it re-encodes so the join is clean:</li>
+</ul>
+<pre>ffmpeg -i part1.mp4 -i part2.mp4 -filter_complex "[0:v][0:a][1:v][1:a]concat=n=2:v=1:a=1[v][a]" -map "[v]" -map "[a]" -c:v libx264 -crf 18 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart combined.mp4</pre>
+<ul>
+<li><strong>Cut it from the VOD.</strong> <a href="../download-twitch-vod/">Download just that section of your VOD</a>, then crop it to vertical as in our <a href="../twitch-clips-youtube-shorts/">YouTube Shorts guide</a>. Shorts allow up to 3 minutes, and Reels under 3 minutes can still reach new viewers.</li>
+</ul>
+
+<h2>5. Clip more than you think</h2>
+<p>A single stream usually has several moments worth posting, and they're easy to miss live. Chat spikes and emote bursts in the VOD point to them; our <a href="../find-twitch-vod-highlights/">highlight-finding guide</a> shows how to spot them without rewatching hours of footage.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Skip the clipping</h2>
+<p>Send PogCut a Twitch VOD link. It finds the highlights, builds the vertical layout and burns in captions, exported at 1080x1920 and 60fps for TikTok, Shorts and Reels. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../find-twitch-vod-highlights/">Find VOD highlights</a> · <a href="../twitch-clips-youtube-shorts/">YouTube Shorts guide</a> · <a href="../caption-twitch-clips/">Captions guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+</body>
+</html>
