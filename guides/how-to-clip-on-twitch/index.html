@@ -68,7 +68,7 @@
 </ul>
 <pre>ffmpeg -i part1.mp4 -i part2.mp4 -filter_complex "[0:v][0:a][1:v][1:a]concat=n=2:v=1:a=1[v][a]" -map "[v]" -map "[a]" -c:v libx264 -crf 18 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart combined.mp4</pre>
 <ul>
-<li><strong>Cut it from the VOD.</strong> <a href="../download-twitch-vod/">Download just that section of your VOD</a>, then crop it to vertical as in our <a href="../twitch-clips-youtube-shorts/">YouTube Shorts guide</a>. Shorts allow up to 3 minutes, and Reels under 3 minutes can still reach new viewers.</li>
+<li><strong>Cut it from the VOD.</strong> <a href="../download-twitch-vod/">Download just that section of your VOD</a>, then crop it to vertical as in our <a href="../twitch-clips-youtube-shorts/">YouTube Shorts guide</a>. Shorts allow up to 3 minutes, and Reels under 3 minutes can still reach new viewers. For what length usually wins discovery, see <a href="../twitch-clip-length-tiktok-shorts/">how long Twitch clips should be</a>.</li>
 </ul>
 
 <h2>5. Clip more than you think</h2>

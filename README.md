@@ -14,6 +14,7 @@ Website: **[pogcut.github.io](https://pogcut.github.io/)**
 - [How to Stack Webcam Over Gameplay in a Vertical Twitch Clip](https://pogcut.github.io/guides/webcam-gameplay-vertical-layout/)
 - [Twitch Clip Titles & Hooks That Go Viral](https://pogcut.github.io/guides/twitch-clip-titles-hooks/)
 - [How to Post Twitch Clips as YouTube Shorts](https://pogcut.github.io/guides/twitch-clips-youtube-shorts/)
+- [How Long Should Twitch Clips Be for TikTok, Shorts & Reels?](https://pogcut.github.io/guides/twitch-clip-length-tiktok-shorts/)
 - [How to Post Twitch Clips as Instagram Reels](https://pogcut.github.io/guides/twitch-clips-instagram-reels/)
 
 All guides: [pogcut.github.io/guides](https://pogcut.github.io/guides/)

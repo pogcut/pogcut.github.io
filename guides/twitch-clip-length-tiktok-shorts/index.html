@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Long Should Twitch Clips Be for TikTok, Shorts and Reels? – PogCut</title>
+<meta name="description" content="Ideal Twitch clip length for TikTok, YouTube Shorts and Instagram Reels: 15–30s for discovery, up to 60s when the punchline needs room, Twitch's 60s native limit, and a free FFmpeg trim for 1080x1920 60fps.">
+<link rel="canonical" href="https://pogcut.github.io/guides/twitch-clip-length-tiktok-shorts/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How long should Twitch clips be for TikTok, Shorts and Reels?">
+<meta property="og:description" content="Practical sweet spots, platform limits, Twitch's 60-second ceiling, and a free FFmpeg trim.">
+<meta property="og:url" content="https://pogcut.github.io/guides/twitch-clip-length-tiktok-shorts/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}.guide pre{overflow-x:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-size:.9rem;white-space:pre-wrap}.guide table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem}.guide th,.guide td{text-align:left;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12)}.guide th{font-weight:600}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How long should Twitch clips be for TikTok, Shorts and Reels","description":"Pick a discovery-friendly length for a Twitch highlight, respect Twitch's 60-second native clip limit, front-load the hook, and trim a vertical 1080x1920 60fps file with FFmpeg.","image":"https://pogcut.github.io/assets/og-image.png","tool":[{"@type":"HowToTool","name":"Twitch Clip Creator"},{"@type":"HowToTool","name":"FFmpeg"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Aim for 15–30 seconds for discovery","text":"Most stream highlights hold new viewers best at about 15 to 30 seconds. Stretch toward 60 seconds only when the punchline needs setup."},
+{"@type":"HowToStep","position":2,"name":"Check platform ceilings","text":"YouTube Shorts allow up to three minutes; keep music-heavy Shorts under one minute so copyright claims do not block them. TikTok and Instagram Reels allow longer uploads, but Reels over three minutes are not recommended to new audiences."},
+{"@type":"HowToStep","position":3,"name":"Respect Twitch's 60-second clip limit","text":"Native Twitch clips max out at 60 seconds. For longer moments, cut from the VOD or join back-to-back clips with FFmpeg."},
+{"@type":"HowToStep","position":4,"name":"Front-load the hook","text":"Put the hook in the first one to two seconds, cut dead air, and end on the reaction or punchline."},
+{"@type":"HowToStep","position":5,"name":"Trim with FFmpeg","text":"Use FFmpeg to cut a vertical 1080x1920 60fps clip to the target duration without changing the aspect ratio."}]},
+{"@type":"Article","headline":"How long should Twitch clips be for TikTok, Shorts and Reels?","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-11-05","dateModified":"2026-11-05","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/twitch-clip-length-tiktok-shorts/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How long should a Twitch clip be for TikTok?","acceptedAnswer":{"@type":"Answer","text":"Aim for about 15 to 30 seconds for discovery. Go up to around 60 seconds when the joke or clutch play needs a short setup. TikTok allows much longer uploads, but retention usually drops after the first half-minute on cold traffic."}},
+{"@type":"Question","name":"How long can a YouTube Short be?","acceptedAnswer":{"@type":"Answer","text":"Up to three minutes. Per YouTube Help, square or vertical videos up to three minutes are categorized as Shorts. Shorts over one minute with an active copyright claim are blocked globally, so keep music-heavy gaming clips under 60 seconds."}},
+{"@type":"Question","name":"How long can a Twitch clip be?","acceptedAnswer":{"@type":"Answer","text":"Per Twitch Help, native clips are up to 60 seconds. For longer moments, download that section of the VOD and edit it, or join two back-to-back clips with FFmpeg."}},
+{"@type":"Question","name":"How long should an Instagram Reel from a Twitch highlight be?","acceptedAnswer":{"@type":"Answer","text":"Stay under three minutes for reach. Instagram Help says Reels can be up to 20 minutes, but Reels over three minutes are not recommended to new audiences. Most stream moments land best in 15 to 45 seconds."}},
+{"@type":"Question","name":"Can PogCut trim clips to the right length?","acceptedAnswer":{"@type":"Answer","text":"Yes. Send PogCut a VOD link and it finds the highlights and exports vertical, captioned 1080x1920 60fps clips sized for TikTok, YouTube Shorts and Reels. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How long should Twitch clips be for TikTok, Shorts and Reels?</h1>
+<p class="lead" style="margin:0">Platforms will take a long file. New viewers will not. Here's the practical length for stream highlights, what each app allows, and a free way to trim a vertical clip to that target.</p>
+
+<h2>1. The sweet spot: 15–30 seconds (up to ~60)</h2>
+<p>For cold traffic on TikTok, YouTube Shorts and Instagram Reels, most Twitch moments hold best at about <strong>15 to 30 seconds</strong>. That is long enough for a setup and a punchline, and short enough that swipe-away viewers still see the payoff. Stretch toward <strong>~60 seconds</strong> when the joke needs a beat of context, a chat callout, or a clutch play that takes time to land. Longer than that is fine for fans who already follow you; it rarely wins discovery.</p>
+<ul>
+<li><strong>15–30s</strong> — one clear moment: reaction, fail, win, or one-liner.</li>
+<li><strong>~45–60s</strong> — short story with a setup; cut every second of dead air.</li>
+<li><strong>Over 60s</strong> — only when the whole arc is the point, and usually after you already have a tighter cut for Shorts/TikTok.</li>
+</ul>
+
+<h2>2. What each platform allows</h2>
+<p>Hard caps are ceilings, not goals. Retention still decides whether the algorithm keeps showing the clip.</p>
+<table>
+<thead><tr><th>Platform</th><th>Hard limit</th><th>Practical target for stream clips</th></tr></thead>
+<tbody>
+<tr><td>TikTok</td><td>Uploads can run many minutes (see <a href="https://support.tiktok.com/en/using-tiktok/creating-videos/camera-tools" rel="noopener">TikTok Help</a>)</td><td>15–30s discovery; up to ~60s when needed</td></tr>
+<tr><td>YouTube Shorts</td><td>Up to <strong>3 minutes</strong> (<a href="https://support.google.com/youtube/answer/15424877" rel="noopener">YouTube Help</a>)</td><td>Under 60s, especially with game/stream music</td></tr>
+<tr><td>Instagram Reels</td><td>Up to <strong>20 minutes</strong>; Reels over <strong>3 minutes</strong> are not recommended to new audiences (<a href="https://help.instagram.com/456185931138729" rel="noopener">Instagram Help</a>)</td><td>15–45s for growth</td></tr>
+<tr><td>Twitch native clip</td><td>Up to <strong>60 seconds</strong> (<a href="https://help.twitch.tv/s/article/how-to-use-clips" rel="noopener">Twitch Help</a>)</td><td>Use the full window only if every second earns it</td></tr>
+</tbody>
+</table>
+<p>One Shorts-specific trap: a Short <strong>over one minute with any active copyright claim is blocked globally</strong>. Game soundtracks and music on stream often trip Content ID. Details and workarounds are in our <a href="../twitch-clips-youtube-shorts/">YouTube Shorts guide</a>. For Reels reach rules and export size, see the <a href="../twitch-clips-instagram-reels/">Instagram Reels guide</a>.</p>
+
+<h2>3. Twitch's 60-second ceiling</h2>
+<p>According to <a href="https://help.twitch.tv/s/article/how-to-use-clips" rel="noopener">Twitch Help</a>, the Clip Creator lets you pick a moment <strong>up to 60 seconds</strong>. That matches the sweet spot above, but it also means a 90-second story will not fit in one native clip. Options:</p>
+<ul>
+<li><strong>Cut from the VOD.</strong> <a href="../download-twitch-vod/">Download that section</a>, then trim and crop to vertical.</li>
+<li><strong>Join two clips.</strong> Make back-to-back 60s clips and concat them with FFmpeg (command in the <a href="../how-to-clip-on-twitch/">how to clip on Twitch</a> guide).</li>
+<li><strong>Make a tight Shorts/TikTok cut plus a longer cut</strong> for subscribers who want the full bit.</li>
+</ul>
+
+<h2>4. Front-load the hook, cut dead air, end on the reaction</h2>
+<p>Length only helps if the first second earns the next. For stream highlights:</p>
+<ol>
+<li><strong>Start 1–2 seconds before the action</strong> — not five seconds of walking or silence.</li>
+<li><strong>Put the question or payoff on screen immediately</strong> (on-screen text + captions). Templates live in the <a href="../twitch-clip-titles-hooks/">titles and hooks guide</a>.</li>
+<li><strong>Cut pauses, loading screens and "uhh"</strong> between beats. Dead air is the fastest swipe.</li>
+<li><strong>End on the reaction</strong> — the laugh, the scream, the chat spam — then stop. Do not linger on the aftermath unless that <em>is</em> the joke.</li>
+</ol>
+
+<h2>5. Free FFmpeg trim to a target length</h2>
+<p>If you already have a vertical <strong>1080x1920 60fps</strong> file and just need a shorter cut, this free <a href="https://ffmpeg.org/" rel="noopener">FFmpeg</a> command keeps the resolution and frame rate and takes 25 seconds starting at 0:03:</p>
+<pre>ffmpeg -ss 3 -i vertical.mp4 -t 25 -c:v libx264 -crf 18 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart clip-25s.mp4</pre>
+<p>Change <code>-ss</code> for the start time (seconds) and <code>-t</code> for the duration. If you still need to crop from a 16:9 stream at the same time, use the export command in the <a href="../twitch-clips-youtube-shorts/">Shorts guide</a> or the <a href="../webcam-gameplay-vertical-layout/">webcam-over-gameplay layout</a>. Burn in <a href="../caption-twitch-clips/">word-by-word captions</a> before you upload — many people watch muted.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Or skip the timing guesswork</h2>
+<p>Send PogCut a Twitch VOD link. It finds the highlights, builds the vertical layout and burns in captions, exported at 1080x1920 and 60fps for TikTok, Shorts and Reels. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../twitch-vod-to-tiktok/">VOD to TikTok</a> · <a href="../twitch-clips-youtube-shorts/">YouTube Shorts</a> · <a href="../twitch-clips-instagram-reels/">Instagram Reels</a> · <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../how-to-clip-on-twitch/">How to clip on Twitch</a> · <a href="../twitch-clips-youtube-shorts/">YouTube Shorts guide</a> · <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+<script data-goatcounter="https://pogcut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
