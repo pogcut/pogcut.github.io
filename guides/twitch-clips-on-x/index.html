@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Post Twitch Clips on X (Twitter): 2:20 Limit, Size, Export – PogCut</title>
+<meta name="description" content="Post Twitch highlights on X (Twitter): the 140-second and 512 MB limits for free accounts, vertical 1080x1920 60fps export with a tested FFmpeg command, and how to write a post that gets the clip watched.">
+<link rel="canonical" href="https://pogcut.github.io/guides/twitch-clips-on-x/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PogCut">
+<meta property="og:title" content="How to post Twitch clips on X (Twitter)">
+<meta property="og:description" content="The 2:20 limit, export settings and post text that get stream clips watched on X.">
+<meta property="og:url" content="https://pogcut.github.io/guides/twitch-clips-on-x/">
+<meta property="og:image" content="https://pogcut.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pogcut.github.io/assets/og-image.png">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>.guide{max-width:760px;margin:0 auto;padding:24px 20px 48px}.guide h1{font-size:2rem;line-height:1.2}.guide h2{margin-top:2.2rem}.guide li{margin:6px 0}.guide .card{margin:24px 0}.guide pre{overflow-x:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-size:.9rem;white-space:pre-wrap}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"How to post Twitch clips on X (Twitter)","description":"Trim a Twitch highlight under 2 minutes 20 seconds, export it as an H.264/AAC MP4, write a one-line hook and post it natively on X.","image":"https://pogcut.github.io/assets/og-image.png","tool":[{"@type":"HowToTool","name":"FFmpeg"},{"@type":"HowToTool","name":"X (Twitter)"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Stay under 2:20","text":"Free X accounts can upload videos up to 140 seconds (2 minutes 20 seconds) and 512 MB. Most stream highlights work best far shorter."},
+{"@type":"HowToStep","position":2,"name":"Export an H.264 MP4","text":"Export H.264 High profile video with AAC audio, up to 60fps, as MP4. Vertical 1080x1920 lets you reuse the same file on TikTok, Shorts and Reels."},
+{"@type":"HowToStep","position":3,"name":"Write the post text","text":"Use one short line that sets up the payoff without spoiling it, plus your Twitch channel."},
+{"@type":"HowToStep","position":4,"name":"Upload natively","text":"Attach the video file to the post instead of pasting a Twitch clip link, so it autoplays in the timeline."}]},
+{"@type":"Article","headline":"How to post Twitch clips on X (Twitter)","author":{"@type":"Organization","name":"PogCut"},"publisher":{"@type":"Organization","name":"PogCut","logo":{"@type":"ImageObject","url":"https://pogcut.github.io/assets/favicon.png"}},"datePublished":"2026-11-12","dateModified":"2026-11-12","image":"https://pogcut.github.io/assets/og-image.png","mainEntityOfPage":"https://pogcut.github.io/guides/twitch-clips-on-x/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How long can a video be on X (Twitter)?","acceptedAnswer":{"@type":"Answer","text":"On a free account, up to 140 seconds (2 minutes 20 seconds) and 512 MB. X Premium raises the limit to several hours, but stream highlights rarely need more than a minute."}},
+{"@type":"Question","name":"What format should a Twitch clip be for X?","acceptedAnswer":{"@type":"Answer","text":"An MP4 with H.264 High profile video and AAC audio, 60fps or lower. X accepts 16:9, 1:1 and 9:16, so a vertical 1080x1920 clip made for TikTok or Shorts can be posted as is."}},
+{"@type":"Question","name":"Should I post a Twitch clip link or upload the video to X?","acceptedAnswer":{"@type":"Answer","text":"Upload the video file. A native video autoplays in the timeline, while a link makes people leave X before they see the moment. Put your Twitch link in the text or a reply."}},
+{"@type":"Question","name":"Can PogCut make X-ready clips from my Twitch VOD?","acceptedAnswer":{"@type":"Answer","text":"Yes. Send PogCut a VOD link and it finds the highlights and exports captioned 1080x1920 60fps MP4s that work on X, TikTok, YouTube Shorts and Reels. It's in free beta for Twitch streamers."}}]}
+]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <a href="../../" class="logo">Pog<span>Cut</span></a>
+  <nav aria-label="Main"><a href="../../#how">How it works</a><a href="../../#faq">FAQ</a><a class="btn sm" href="../../#signup">Join beta</a></nav>
+</header>
+<main id="main" class="guide">
+<p class="pill">Guide</p>
+<h1>How to post Twitch clips on X (Twitter)</h1>
+<p class="lead" style="margin:0">A lot of streamers already live on X: go-live posts, replies, memes. Clips are the post type that actually shows people what your stream feels like. Here are the limits, an export command, and how to write the post so the clip gets watched.</p>
+
+<h2>1. Know the limits</h2>
+<ul>
+<li><strong>Length:</strong> free X accounts can upload videos up to <strong>140 seconds (2:20)</strong>. Premium raises that a lot, but you don't need it for highlights.</li>
+<li><strong>File size:</strong> up to <strong>512 MB</strong> on a free account. A one-minute 1080p60 clip is usually a few tens of MB, so size is rarely the problem.</li>
+<li><strong>Format:</strong> MP4 (or MOV) with H.264 video and AAC audio, up to 60fps. Landscape, square and vertical all work.</li>
+</ul>
+<p>Two minutes is a ceiling, not a target. Start right before the setup and end right after the payoff; most stream moments land in 15–45 seconds. See <a href="../twitch-clip-length-tiktok-shorts/">how long Twitch clips should be</a> for the reasoning.</p>
+
+<h2>2. Export one file that works everywhere</h2>
+<p>X takes vertical video, so the same 1080x1920 clip you make for TikTok and Shorts can go straight on X. This free <a href="https://ffmpeg.org/" rel="noopener">FFmpeg</a> command takes a 45-second slice starting at 0:05 from a 16:9 stream recording, center-crops it to vertical and exports an X-friendly MP4 at 60fps:</p>
+<pre>ffmpeg -ss 5 -i clip.mp4 -t 45 -vf "crop=ih*9/16:ih,scale=1080:1920,fps=60" -c:v libx264 -profile:v high -crf 20 -preset medium -g 120 -pix_fmt yuv420p -c:a aac -b:a 128k -ar 44100 -movflags +faststart x-clip.mp4</pre>
+<p><code>-profile:v high</code> and <code>yuv420p</code> keep the file in the H.264 flavor X expects, <code>-g 120</code> puts a keyframe every two seconds, and <code>+faststart</code> lets playback begin before the whole file loads. We tested it on a 1080x1920 60fps PogCut clip: 20 seconds came out at about 10 MB. If your clip is already vertical, drop the <code>crop=...,</code> part. Want your webcam on top? Use the <a href="../webcam-gameplay-vertical-layout/">webcam-over-gameplay layout</a>.</p>
+
+<h2>3. Upload the video, don't paste the link</h2>
+<p>A pasted Twitch clip link shows up as a link card, and people have to leave X to watch. A natively uploaded video autoplays in the timeline, which is where the views come from. Upload the MP4 and put your Twitch link in the text or in a reply under the post.</p>
+
+<h2>4. Write one line of setup</h2>
+<p>The post text does the job a title does on Shorts: set up the moment without spoiling it.</p>
+<ul>
+<li>Tease the stakes: <em>"chat told me to concede. I had one card left."</em></li>
+<li>Ask the question the clip answers: <em>"how did this not kill me"</em></li>
+<li>Keep it short, lowercase is fine, and skip a wall of hashtags.</li>
+</ul>
+<p>Burn in <a href="../caption-twitch-clips/">word-by-word captions</a> too, since timeline videos start muted. More templates are in the <a href="../twitch-clip-titles-hooks/">titles and hooks guide</a>.</p>
+
+<h2>5. Post while the stream is fresh</h2>
+<p>Post the best clip shortly after you go offline, while your community is still talking about it, and pin it if it's a good intro to your channel. Tag the game or anyone who was in the moment when it's natural. For timing across platforms, see <a href="../how-often-post-twitch-clips/">how often to post clips</a>.</p>
+
+<div class="card">
+<h2 style="margin-top:0">Get X-ready clips automatically</h2>
+<p>Send PogCut a Twitch VOD link. It finds the highlights, builds the vertical layout and burns in captions, exported as 1080x1920 60fps MP4s that work on X, TikTok, Shorts and Reels. It's in free beta for Twitch streamers.</p>
+<a class="btn" href="../../#signup">Join the free beta</a>
+</div>
+<p>More guides: <a href="../">all PogCut guides</a></p>
+</main>
+<footer class="foot"><p><a href="../../">PogCut home</a> · <a href="../">Guides</a> · <a href="../twitch-clips-youtube-shorts/">Shorts guide</a> · <a href="../twitch-clips-instagram-reels/">Reels guide</a> · <a href="../twitch-vod-to-tiktok/">VOD to TikTok guide</a></p><p>© 2026 PogCut · Not affiliated with Twitch.</p></footer>
+<script data-goatcounter="https://pogcut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

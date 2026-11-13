@@ -15,6 +15,7 @@ Website: **[pogcut.github.io](https://pogcut.github.io/)**
 - [Twitch Clip Titles & Hooks That Go Viral](https://pogcut.github.io/guides/twitch-clip-titles-hooks/)
 - [How to Post Twitch Clips as YouTube Shorts](https://pogcut.github.io/guides/twitch-clips-youtube-shorts/)
 - [How to Make Twitch Clips Go Viral on TikTok, Shorts & Reels](https://pogcut.github.io/guides/make-twitch-clips-go-viral/)
+- [How to Post Twitch Clips on X (Twitter)](https://pogcut.github.io/guides/twitch-clips-on-x/)
 - [How Often Should You Post Twitch Clips on TikTok, Shorts & Reels?](https://pogcut.github.io/guides/how-often-post-twitch-clips/)
 - [How Long Should Twitch Clips Be for TikTok, Shorts & Reels?](https://pogcut.github.io/guides/twitch-clip-length-tiktok-shorts/)
 - [How to Post Twitch Clips as Instagram Reels](https://pogcut.github.io/guides/twitch-clips-instagram-reels/)
